@@ -1,4 +1,6 @@
 Xmlparser::Application.routes.draw do
+  get "transactions/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
