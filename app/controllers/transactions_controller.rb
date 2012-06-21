@@ -1,5 +1,9 @@
 class TransactionsController < ApplicationController
   require 'crack/xml'
+
+  # require 'rubygems'
+  require 'net/sftp'
+
   def index
   	@transactions = Transaction.all
   end
@@ -147,6 +151,16 @@ class TransactionsController < ApplicationController
     else
       flash[:alert] = "Something went wrong"
       redirect_to '/transactions/index'
+    end
+  end
+
+  def upload 
+    Net::SFTP.start('s133234.gridserver.com', 'bluzgraphics.com', :password => 'p2265a96z31') do |sftp|
+      @sftp = sftp # I've got a session object so that seems to work
+      
+      # upload a file or directory to the remote host
+      sftp.upload!("/Users/kensodev/Desktop/2.png", "/nfs/c09/h03/mnt/133234/domains/inbar-paz.com/html/test/2.png")
+      # sftp.download!("/domains/inbar-paz.com/html/index.html", "/Users/kensodev/Desktop/index.html")
     end
   end
 end
