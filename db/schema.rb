@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120620171640) do
+ActiveRecord::Schema.define(:version => 20120620175408) do
 
   create_table "transactions", :force => true do |t|
     t.integer  "card_id"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20120620171640) do
     t.decimal  "amount",          :precision => 8, :scale => 2
     t.datetime "created_at",                                    :null => false
     t.datetime "updated_at",                                    :null => false
+    t.string   "response_url"
   end
 
 end

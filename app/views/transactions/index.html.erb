@@ -1,2 +1,17 @@
 <h1>Transactions#index</h1>
 <p>Find me in app/views/transactions/index.html.erb</p>
+
+<% @transactions.each do |transaction| %>
+	Transaction:
+	<br>
+	<strong>ID:</strong> <%= transaction.id %><br>
+	<strong>Card-ID:</strong> <%= transaction.card_id %><br>
+	<strong>Presonal-ID:</strong> <%= transaction.personal_id %><br>
+	<strong>Card-Expiration:</strong> <%= transaction.card_expiration %><br>
+	<strong>Response-Text:</strong> <%= transaction.cgresponse_text %><br>
+	<strong>Anount:</strong> <%= transaction.amount %><br>
+	<strong>Response-Url:</strong> <%= transaction.response_url %>
+	<br><br>
+<% end %>
+
+
