@@ -21,7 +21,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
+gem "net-sftp", "~> 2.0.5"
 gem 'crack'
 
 group :development, :test do
