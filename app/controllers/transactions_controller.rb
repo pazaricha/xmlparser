@@ -1,11 +1,15 @@
 class TransactionsController < ApplicationController
   require 'crack/xml'
+  require "net/http"
 
   # require 'rubygems'
   require 'net/sftp'
 
   def index
   	@transactions = Transaction.all
+
+    uri = URI.parse("http://pazaricha.com")
+    @uri = uri.scheme
   end
 
   def create
@@ -144,6 +148,8 @@ class TransactionsController < ApplicationController
   	response_url = @parsed_xml["ashrait"]["response"]["inquireTransactions"]["row"]["cgGatewayResponseXML"]["ashrait"]["response"]["responseUrl"]
 
   	@transaction = Transaction.new(:card_id => card_id, :personal_id => personal_id, :card_expiration => card_expiration, :cgresponse_text => cgresponse_text, :amount => cgresponse_text, :response_url => response_url )
+
+
 
   	if @transaction.save
       flash[:notice] = "Transaction was successfully created."
