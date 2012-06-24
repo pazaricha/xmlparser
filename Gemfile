@@ -23,6 +23,7 @@ end
 gem 'jquery-rails'
 gem "net-sftp", "~> 2.0.5"
 gem 'crack'
+gem 'rest-client', :git => "git://github.com/archiloque/rest-client.git"
 
 group :development, :test do
   gem "rspec-rails", "~> 2.0"
