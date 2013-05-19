@@ -1,6 +1,7 @@
 class TransactionsController < ApplicationController
   require 'crack/xml'
   require "net/http"
+  require "rest_client"
 
   # require 'rubygems'
   require 'net/sftp'
